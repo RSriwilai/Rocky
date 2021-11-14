@@ -1,7 +1,10 @@
 ﻿@model Rocky.Models.ViewModels.ProductViewModel;
-
-@{ 
+@section Styles {
+    <link href="~/css/product.css" rel="stylesheet" />
+}
+@{
     var title = "Create Product";
+
 }
 
 <form method="post" enctype="multipart/form-data">
@@ -42,7 +45,8 @@
                         <label asp-for="Product.Description"></label>
                     </div>
                     <div class="col-8">
-                        <textarea asp-for="Product.Description" class="form-control summernote"></textarea>
+                        <textarea asp-for="Product.Description" id="area" class="form-control" maxlength="200"></textarea>
+                        <div class="word-counter">0/200</div>
                         <span asp-validation-for="Product.Description" class="text-danger"></span>
                     </div>
                 </div>
@@ -96,7 +100,7 @@
                     </div>
                 </div>
             </div>
-            @if(Model.Product.Id != 0)
+            @if (Model.Product.Id != 0)
             {
                 <div class="col-4">
                     <img src="@WC.ImagePath@Model.Product.Image" alt="Could not load images" width="100%" style="border-radius:5px; border:1px solid #bbb" />
@@ -111,21 +115,10 @@
 @section Scripts{
 
     <script>
-        $(document).ready(function () {
-            $('.summernote').summernote({
-                height: 250,
-                toolbar: [
-                    ['style', ['style']],
-                    ['font', ['bold', 'underline', 'clear']],
-                    ['color', ['color']],
-                    ['para', ['ul', 'ol', 'paragraph']],
-                    ['table', ['table']],
-                    ['insert', ['link', 'picture', 'video']],
-                    ['view', ['codeview', 'help']]
-                ]
-                
-            });
-        });
+
+        $('#area').keyup(function () {
+            $('.word-counter').text(this.value.length + '/200');
+        })
 
         function validateInput() {
             if (document.getElementById("uploadBox").value == "") {
@@ -138,6 +131,5 @@
             }
             return true;
         }
-
     </script>
- }
+}
