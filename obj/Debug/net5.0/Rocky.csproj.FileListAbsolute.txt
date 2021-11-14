@@ -156,3 +156,4 @@ C:\Users\duk15\source\repos\Rocky\obj\Debug\net5.0\Rocky.dll
 C:\Users\duk15\source\repos\Rocky\obj\Debug\net5.0\ref\Rocky.dll
 C:\Users\duk15\source\repos\Rocky\obj\Debug\net5.0\Rocky.pdb
 C:\Users\duk15\source\repos\Rocky\obj\Debug\net5.0\Rocky.genruntimeconfig.cache
+C:\Users\duk15\source\repos\Rocky\obj\Debug\net5.0\Razor\Views\Home\Details.cshtml.g.cs
